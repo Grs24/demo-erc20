@@ -6,13 +6,61 @@
 
 例如：
 
--   bool
--   int8
+- bool
+- int8
 
 评分标准：每个数据类型计 1 分  
-参考资料： https://docs.soliditylang.org/en/latest/types.html
+参考资料： <https://docs.soliditylang.org/en/latest/types.html>
 
-## 第 2 题：列举并测试以太坊的 JSONRPC API。
+## 答
+
+Solidity支持以下类型:
+
+1.基本类型：
+
+- bool: 布尔类型
+- int / uint: 有符号/无符号整型
+- address: 地址类型
+- bytes: 字节序列
+- string: 字符串
+
+2.数组类型：
+
+- type[]: 固定大小数组
+- type[] memory: 动态大小数组
+- type[][]: 二维数组
+
+3.结构体类型：
+
+- struct: 自定义结构体类型
+
+4.元组类型:
+
+- tuple: 自定义元组类型
+
+5.枚举类型：
+
+- enum: 枚举类型
+
+6.以太坊特有类型：
+
+- mapping: 映射类型
+- contract: 合约类型
+- function: 函数类型
+
+7.派生类型：
+
+- bytes1 to bytes32: 字节序列类型
+- int8 to int256: 有符号整型类型
+- uint8 to uint256: 无符号整型类型
+
+8.新增类型：
+
+- fixed: 固定精度小数
+- ufixed: 无符号固定精度小数
+- address payable: 可付款地址类型
+
+## 第 2 题：列举并测试以太坊的 JSONRPC API
 
 评分标准：每条有效的（提供文本命令和测试截图） API 计 2 分，例如：
 
@@ -29,14 +77,82 @@ curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainst
 
 ---
 
+## 答
+
+### 1.web3_clientVersion: 返回连接到以太坊网络的客户端的版本号
+
+- 文本命令：
+
+```shell
+curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainstacklabs.com -d '{"id":1,"jsonrpc":"2.0","method":"web3_clientVersion","params":[]}'
+```
+
+- 测试截图: [![pSlBPzT.png](https://s1.ax1x.com/2023/01/16/pSlBPzT.png)](https://imgse.com/i/pSlBPzT)
+
+### 2.eth_blockNumber: 返回当前区块链的高度
+
+- 文本命令：
+
+```shell
+curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainstacklabs.com -d '{"id":1,"jsonrpc":"2.0","method":"eth_blockNumber","params":[]}'
+
+```
+
+- 测试截图: [![pSlBywj.png](https://s1.ax1x.com/2023/01/16/pSlBywj.png)](https://imgse.com/i/pSlBywj)
+
+### 3.eth_getBalance: 返回给定地址的余额
+
+- 文本命令：
+
+```shell
+curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainstacklabs.com -d '{"id":1,"jsonrpc":"2.0","method":"eth_getBalance","params":["0x742d35Cc6634C0532925a3b844Bc454e4438f44e", "latest"]}'
+```
+
+- 测试截图: [![pSlg04H.png](https://s1.ax1x.com/2023/01/16/pSlg04H.png)](https://imgse.com/i/pSlg04H)
+
+### 4.eth_getTransactionByHash: 查询指定交易的详细信息
+
+- 文本命令：
+
+```shell
+curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainstacklabs.com -d '{"id":1,"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0x3FD761B0106BbE39eD0A627042Bc5B0E95622bdD", "latest"]}'
+```
+
+- 测试截图: [![pSlg04H.png](https://s1.ax1x.com/2023/01/16/pSlg04H.png)](https://imgse.com/i/pSlg04H)
+
+### 4.eth_getTransactionCount: 返回给定地址的交易数量
+
+- 文本命令：
+
+```shell
+curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainstacklabs.com -d '{"id":1,"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0x3FD761B0106BbE39eD0A627042Bc5B0E95622bdD", "latest"]}'
+```
+
+- 测试截图: [![pSl2eGd.png](https://s1.ax1x.com/2023/01/16/pSl2eGd.png)](https://imgse.com/i/pSl2eGd)
+
+### 5.eth_gasPrice: 返回当前的gas价格，单位：wei
+
+- 文本命令：
+
+```shell
+curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainstacklabs.com -d '{"id":1,"jsonrpc":"2.0","method":"eth_gasPrice","params":[]}'
+```
+
+- 测试截图: [![pSl2RQ1.png](https://s1.ax1x.com/2023/01/16/pSl2RQ1.png)](https://imgse.com/i/pSl2RQ1)
+
 ## 第 3 题：同一个合约里代码相同的函数，为什么 GAS 费不同？
 
 请用 Remix 验证在同一个合约里，名称不同、代码相同的函数的 GAS 费不相等，并解释原因。
 
 评分标准：
 
--   验证成功： 10 分，对过程要截图
--   解释正确： 10 分
+- 验证成功： 10 分，对过程要截图
+- 解释正确： 10 分
+
+## 答
+
+- 验证截图：[![pSl4Jvd.png](https://s1.ax1x.com/2023/01/16/pSl4Jvd.png)](https://imgse.com/i/pSl4Jvd)
+- 解释：在智能合约中，函数的 GAS 费由函数的 bytecode 大小决定。在同一个合约里，名称不同、代码相同的函数，他们的 bytecode 大小也不相等。所以他们的 GAS 费也不相等。
 
 ## 第 4 题：用 Remix 部署校验合约
 
@@ -44,10 +160,14 @@ curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainst
 
 评分标准：
 
--   代码正确：截图 10 分
--   部署成功：截图 10 分
--   代码校验：截图 5 分
--   获取结果：截图 5 分
+- 代码正确：截图 10 分
+- 部署成功：截图 10 分
+- 代码校验：截图 5 分
+- 获取结果：截图 5 分
+
+### 部署成功：截图
+
+[![pSlO7tA.png](https://s1.ax1x.com/2023/01/16/pSlO7tA.png)](https://imgse.com/i/pSlO7tA)
 
 ## 第 5 题：黑名单 ERC20 合约
 
@@ -57,14 +177,14 @@ curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainst
 
 评分标准：
 
--   找到问题现象： 截图 10 分
--   解释问题原因： 10 分
--   修改合约代码： 20 分
--   自动化测试全部通过： 10 分
+- 找到问题现象： 截图 10 分
+- 解释问题原因： 10 分
+- 修改合约代码： 20 分
+- 自动化测试全部通过： 10 分
 
 ### 5.2 优化 BlacklistTokenFactory.test.js
 
-参考： https://hardhat.org/tutorial/testing-contracts , 使用 loadFixture 重构 test/BlacklistTokenFactory.test.js 文件。
+参考： <https://hardhat.org/tutorial/testing-contracts> , 使用 loadFixture 重构 test/BlacklistTokenFactory.test.js 文件。
 
 评分标准： 30 分
 
@@ -74,13 +194,14 @@ curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainst
 
 评分标准：
 
--   代码正确： 30 分
--   部署成功： 10 分
--   代码校验： 10 分
--   手工测试： 10 分
--   
+- 代码正确： 30 分
+- 部署成功： 10 分
+- 代码校验： 10 分
+- 手工测试： 10 分
+-
+
 ### 5.4 对 BlacklistToken 合约进行自动化测试
 
-目前 BlacklistToken 还没有写测试用例，请在 test/BlacklistToken.test.js 文件里尽量补齐。可参考 https://hardhat.org/tutorial/testing-contracts 和网上其它开源项目的测试用例。
+目前 BlacklistToken 还没有写测试用例，请在 test/BlacklistToken.test.js 文件里尽量补齐。可参考 <https://hardhat.org/tutorial/testing-contracts> 和网上其它开源项目的测试用例。
 
 评分标准：每个有效的（能执行通过）测试用例 10 分，性质相同的用例不重复计分
