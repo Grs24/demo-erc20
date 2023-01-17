@@ -164,6 +164,8 @@ curl -s -X POST -H "Content-Type: application/json" https://matic-mumbai.chainst
 - 代码校验：截图 5 分
 - 获取结果：截图 5 分
 
+- 代码截图：[![pS1XUij.png](https://s1.ax1x.com/2023/01/17/pS1XUij.png)](https://imgse.com/i/pS1XUij)
+
 ### 部署成功：截图
 
 [![pSlO7tA.png](https://s1.ax1x.com/2023/01/16/pSlO7tA.png)](https://imgse.com/i/pSlO7tA)
