@@ -16,49 +16,48 @@
 
 Solidity支持以下类型:
 
-1.基本类型：
-
-- bool: 布尔类型
-- int / uint: 有符号/无符号整型
-- address: 地址类型
-- bytes: 字节序列
-- string: 字符串
-
-2.数组类型：
-
-- type[]: 固定大小数组
-- type[] memory: 动态大小数组
-- type[][]: 二维数组
-
-3.结构体类型：
-
-- struct: 自定义结构体类型
-
-4.元组类型:
-
-- tuple: 自定义元组类型
-
-5.枚举类型：
-
-- enum: 枚举类型
-
-6.以太坊特有类型：
-
-- mapping: 映射类型
-- contract: 合约类型
-- function: 函数类型
-
-7.派生类型：
-
-- bytes1 to bytes32: 字节序列类型
-- int8 to int256: 有符号整型类型
-- uint8 to uint256: 无符号整型类型
-
-8.新增类型：
-
-- fixed: 固定精度小数
-- ufixed: 无符号固定精度小数
-- address payable: 可付款地址类型
+- address
+- string
+- fixed
+- ufixed
+- address payable
+- function
+- contract
+- mapping
+- enum
+- struct
+- bytes
+- bytes1
+- bytes2
+- bytes3
+- bytes4
+- bytes5
+- bytes6
+- bytes7
+- bytes8
+- bytes9
+- bytes10
+- bytes11
+- bytes12
+- bytes13
+- bytes14
+- bytes15
+- bytes16
+- bytes17
+- bytes18
+- bytes19
+- bytes20
+- bytes21
+- bytes23
+- bytes24
+- bytes25
+- bytes26
+- bytes27
+- bytes28
+- bytes29
+- bytes30
+- bytes31
+- bytes32
 
 ## 第 2 题：列举并测试以太坊的 JSONRPC API
 
